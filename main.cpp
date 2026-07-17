@@ -2,8 +2,8 @@
 using namespace std;
 
 const double DOLLARS_PER_GALLON = 4.49;     // cost of gas per gallon
-const double MILES_PER_COMMUTE = 20.5;    // miles in one round-trip commute
-const double MILES_PER_GALLON = 36;       // car fuel efficiency
+const double MILES_PER_COMMUTE = 20.5;      // miles in one round-trip commute
+const double MILES_PER_GALLON = 36;         // car fuel efficiency
 
 double myCommutes;
 double myCost;
@@ -17,19 +17,28 @@ double toCommutes(double gasDollars) {
   gasGallons = gasDollars / DOLLARS_PER_GALLON;
   gasMiles = gasGallons * MILES_PER_GALLON;
 
-  numCommutes = gasMiles; // TODO: That math is not right! Something is missing here...
+  numCommutes = gasMiles / MILES_PER_COMMUTE;
 
   return numCommutes;
 }
 
-// TODO!
-// Converts number of commutes into gas cost
-/*
+// Converts number of commutes into the total gas cost
 double toDollars(double commutes) {
-  ....
+  double totalMiles;
+  double totalGallons;
+  double totalCost;
+
+  // Calculate total miles driven
+  totalMiles = commutes * MILES_PER_COMMUTE;
+
+  // Calculate gallons of gas needed
+  totalGallons = totalMiles / MILES_PER_GALLON;
+
+  // Calculate total cost of the gas
+  totalCost = totalGallons * DOLLARS_PER_GALLON;
+
   return totalCost;
 }
-*/
 
 int main() {
 
